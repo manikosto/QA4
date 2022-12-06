@@ -22,3 +22,14 @@ for cookie in cookies:
 driver.get("https://www.freeconferencecall.com/profile")
 time.sleep(5)
 
+''' Debug mode '''
+
+driver.get("https://www.freeconferencecall.com")
+print(driver.get_cookies())
+driver.delete_cookie("country_code")
+driver.delete_cookie("locale")
+driver.add_cookie({'domain': 'www.freeconferencecall.com', 'httpOnly': True, 'name': 'country_code', 'path': '/', 'sameSite': 'Lax', 'secure': True, 'value': 'ae'})
+driver.add_cookie({'domain': 'www.freeconferencecall.com', 'httpOnly': False, 'name': 'locale', 'path': '/', 'sameSite': 'Lax', 'secure': True, 'value': 'ar'})
+print(driver.get_cookies())
+driver.get("https://www.freeconferencecall.com")
+time.sleep(10)
